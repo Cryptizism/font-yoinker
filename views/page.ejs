@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Yoinker 2000</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+<body>
+    <%- include('./partials/search') %>
+    <div class="fonts-container">
+        <% fonts.forEach(font => { %>
+            <style>
+                @font-face {
+                    font-family: '<%= font.id %>';
+                    src: url('<%= font.url %>');
+                }
+            </style>
+
+            <div class="font-container">
+                <div class="font-preview">
+                    <h2 style="font-family: '<%=font.id%>';">
+                        Aa
+                    </h2>
+                </div>
+                <div id="font-info">
+                    <h2 id="font-name" style="font-family: '<%=font.id%>';">
+                        <%= font.name %>
+                    </h2>
+                    <a href="<%= font.url %>" target="_blank">
+                        <%= font.url %> 
+                    </a>  
+                </div>
+                <div class="font-buttons">
+                    <a class="font-button green" href="<%= font.url %>" target="_blank">
+                        Download
+                    </a>
+                    <a class="font-button blue" title="Coming Soon.">
+                        Convert
+                    </a>
+                </div>
+                <div class="font-dropdown" data-id="<%=font.id%>">
+                    <svg width="30" height="17" viewBox="0 0 60 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 2L30 30L58 2" stroke="#141212" stroke-width="5"/>
+                    </svg>                        
+                </div>
+            </div>
+            <div class="font-drop" id="<%=font.id%>-drop" style="display: none">
+                <textarea class="font-textarea" placeholder="Enter text to test <%= font.name %>" style="font-family: '<%=font.id%>';"></textarea>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>

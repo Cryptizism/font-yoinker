@@ -1,0 +1,233 @@
+:root{
+    --background-colour: #141212;
+}
+
+p, h1, h2, h3, h4, h5, h6{
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-colour);
+}
+
+.logo{
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 64px;
+    height: 64px;
+}
+
+.title{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.body-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.search-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#website-input{
+    transform: translateX(20px);
+    width: 15%;
+    box-sizing: border-box;
+    border: 1px solid #6D6A6A;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #3E3E3E;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 20px;
+    transition: width 0.4s ease-in-out;
+    text-align: left;
+    color: #d6dee1;
+}
+
+#website-input:focus{
+    width: 25%;
+}
+
+#search-button{
+    position: relative;
+    margin:0;
+    transform: translateX(-20px);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: #6D6A6A;
+    background-color: #3E3E3E;
+    padding: 5px;
+}
+
+.tagline{
+    text-align: center;
+    color: rgb(94, 93, 99);
+}
+
+.loader {
+    border: 3px solid #6D6A6A;
+    border-radius: 50%;
+    border-top: 3px solid #3E3E3E;
+    width: 12px;
+    height: 12px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+.fonts-container{
+    border-radius: 1rem;
+    margin-top: 16px;
+    max-width: 80%;
+    min-width: fit-content;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.font-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 15%;
+    background-color: #3E3E3E;
+    border-radius: 1rem;
+    z-index: 2;
+}
+
+.font-preview{
+    display: flex;
+    background-color: #6D6A6A;
+    width: 10%;
+    border-radius: 1rem 0 0 1rem;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.font-preview > h2{
+    text-align: center;
+}
+
+.font-buttons{
+    margin-top: 32px;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-left: auto;
+}
+
+.font-button{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    padding: 16px;
+    border-radius: 2rem;
+    width: 10vw;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.blue{
+    background-color: #2283B9;
+}
+
+.green{
+    background-color: #3EAA55;
+}
+
+.font-button.blue{
+    cursor: not-allowed;
+}
+
+.font-dropdown{
+    margin-top: 16px;
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+.font-dropdown.closed > svg{
+    transform: rotate(180deg);
+}
+
+.font-drop{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    z-index: 1;
+    transform: translateY(-16px);
+    padding: 16px;
+    background-color: #585858;
+    border-radius: 0 0 1rem 1rem;
+    overflow: hidden;
+}
+
+.font-textarea{
+    width: 80%;
+    font-size: medium;
+    max-width: 100%;
+}
+
+#font-name{
+    margin-bottom: auto;
+}
+
+#font-info{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 16px;
+    width: 50%;
+    overflow: hidden;
+}
+
+a{
+    color: #2283B9;
+    font-family: 'Roboto', sans-serif;
+}
+
+a:visited{
+    color: #3EAA55;
+}
