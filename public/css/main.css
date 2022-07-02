@@ -46,7 +46,7 @@ body{
 
 #website-input{
     transform: translateX(20px);
-    width: 15%;
+    width: 25%;
     box-sizing: border-box;
     border: 1px solid #6D6A6A;
     border-radius: 4px;
@@ -61,7 +61,34 @@ body{
 }
 
 #website-input:focus{
-    width: 25%;
+    width: 35%;
+}
+
+@media only screen and (max-width: 600px) {
+    #website-input{
+        width: 80%;
+    }
+
+    #website-input:focus{
+        width: 90%;
+    }
+
+    h2{
+        font-size: x-small;
+    }
+
+    a{
+        font-size: xx-small;
+    }
+
+    .font-button{
+        padding: 8px !important;
+    }
+
+    #dropdown-svg{
+        width: 15px;
+        height: 8px;
+    }
 }
 
 #search-button{
@@ -109,8 +136,6 @@ body{
     border-radius: 1rem;
     margin-top: 16px;
     max-width: 80%;
-    min-width: fit-content;
-    width: 50%;
     margin-left: auto;
     margin-right: auto;
     display: flex;
