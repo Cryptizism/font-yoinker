@@ -89,6 +89,10 @@ body{
         width: 15px;
         height: 8px;
     }
+    
+    .fonts-container{
+        width: 100% !important;
+    }
 }
 
 #search-button{
