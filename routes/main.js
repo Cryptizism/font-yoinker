@@ -53,12 +53,17 @@ router.get('/font/:site', async (req, res) => {
     });
     //close once done and send response
     page.on('load', async () => {
-        await browser.close();
         if(fonts.length == 0){
-            res.send('No fonts found');
+            await page.waitForTimeout(3000);
+            if(fonts.length == 0){
+                res.send('No fonts found');
+            } else {
+                res.render('page', {fonts: fonts});
+            }
         } else {
             res.render('page', {fonts: fonts});
         }
+        await browser.close();
     });
 });
 
