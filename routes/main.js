@@ -33,7 +33,7 @@ router.get('/font/:site', async (req, res) => {
     var fonts = [];
     page.on('response', (response) => {
         //if the response is a font
-        if(response.headers()['content-type']?.startsWith('font/')){
+        if(response.headers()['content-type']?.startsWith('font/') || response.url().endsWith('.woff' || '.woff2' || '.ttf' || '.otf')){
             //add to fonts array
             var url = response.url();
             if(url.startsWith('https://fonts.gstatic.com/s/')){
