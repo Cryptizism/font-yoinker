@@ -30,7 +30,6 @@ router.get('/font/:site', async (req, res) => {
     var fonts = [];
     page.on('request', (response) => {
         var url = response.url();
-        console.log(url);
         //if the response is a font
         if(response.headers()['content-type']?.startsWith('font/') || isFont(response.url())){
             //add to fonts array
