@@ -12,7 +12,10 @@ searchButton.addEventListener('click', e => {
 
 function sendToFont(e) {
     if(searchContainer.childElementCount > 2){ return; }
-    const searchTerm = searchBar.value;
+    var searchTerm = searchBar.value;
+    if(!(searchTerm.startsWith('http') || searchTerm.startsWith('https'))){
+        searchTerm = 'https://' + searchTerm;
+    }
     if(searchTerm.length == 0) { return; }
     window.location.href = `/font/${encodeURIComponent(searchTerm)}`;
 
