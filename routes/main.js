@@ -4,6 +4,10 @@ const router = express.Router();
 //puppeteer
 const puppeteer = require('puppeteer');
 
+function isFont(font) {
+    return font.endsWith('.ttf') || font.endsWith('.woff') || font.endsWith('.woff2') || font.endsWith('.otf');
+}
+
 // host:port/
 router.get('/', (req, res) => {
     res.render('index');
@@ -22,18 +26,13 @@ router.get('/font/:site', async (req, res) => {
     //initalize puppeteer
     const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
     const page = await browser.newPage();
-    //navigate to site
-    try {
-        await page.goto(site, { waitUntil: 'domcontentloaded' });
-    } catch (error) {
-        res.send('Could not reach that site')
-        return;
-    }
     //get font from site
     var fonts = [];
-    page.on('response', (response) => {
+    page.on('request', (response) => {
+        var url = response.url();
+        console.log(url);
         //if the response is a font
-        if(response.headers()['content-type']?.startsWith('font/') || response.url().endsWith('.woff' || '.woff2' || '.ttf' || '.otf')){
+        if(response.headers()['content-type']?.startsWith('font/') || isFont(response.url())){
             //add to fonts array
             var url = response.url();
             if(url.startsWith('https://fonts.gstatic.com/s/')){
@@ -51,6 +50,13 @@ router.get('/font/:site', async (req, res) => {
             fonts.push(font);
         }
     });
+    //navigate to site
+    try {
+        await page.goto(site, { waitUntil: 'domcontentloaded' });
+    } catch (error) {
+        res.send('Could not reach that site')
+        return;
+    }
     //close once done and send response
     page.on('load', async () => {
         if(fonts.length == 0){
