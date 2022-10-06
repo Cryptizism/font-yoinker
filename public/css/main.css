@@ -77,8 +77,13 @@ body{
         font-size: x-small;
     }
 
-    a{
+    a, p{
         font-size: xx-small;
+    }
+
+    .gh-icon{
+        width: 12px;
+        height: 12px;
     }
 
     .font-button{
@@ -147,6 +152,7 @@ body{
     align-items: center;
     justify-content: center;
     gap: 16px;
+    margin-bottom: 70px;
 }
 
 .font-container{
@@ -259,4 +265,22 @@ a{
 
 a:visited{
     color: #3EAA55;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    margin-top: 1rem;
+    background-color: #0a0909;
+    gap: 8rem;
+}
+
+footer > p{
+    color: #d6dee1;
 }

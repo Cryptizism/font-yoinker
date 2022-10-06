@@ -4,6 +4,9 @@ const router = express.Router();
 //puppeteer
 const puppeteer = require('puppeteer');
 
+const StealthPlugin = require('puppeteer-extra-plugin-stealth')
+puppeteer.use(StealthPlugin())
+
 function isFont(font) {
     return font.endsWith('.ttf') || font.endsWith('.woff') || font.endsWith('.woff2') || font.endsWith('.otf');
 }
@@ -54,6 +57,7 @@ router.get('/font/:site', async (req, res) => {
         await page.goto(site, { waitUntil: 'domcontentloaded' });
     } catch (error) {
         res.send('Could not reach that site')
+        await browser.close();
         return;
     }
     //close once done and send response

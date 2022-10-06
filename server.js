@@ -11,6 +11,8 @@ const chalk = require('chalk');
 var favicon = require('serve-favicon')
 var path = require('path')
 
+process.setMaxListeners(0);
+
 //Set render engine
 app.set('view engine', 'ejs');
 
